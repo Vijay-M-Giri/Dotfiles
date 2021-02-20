@@ -1,4 +1,16 @@
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'python-mode/python-mode'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 "basic
 set smartindent
@@ -9,6 +21,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 syntax enable
+set updatetime=100
 
 let g:rehash256 = 1
 "let g:molokai_original = 1
@@ -39,11 +52,16 @@ set guioptions-=L
 "set fast cursor
 set ttyfast
 
+set lazyredraw
+set regexpengine=1
+
 "Highlights the current line
 set cursorline
 
 "For control flow statements
 inoremap {<CR> {<CR>}<Esc>O
+inoremap (<CR> (<CR>)<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
 
 "Say no to swap files
 set noswapfile
@@ -74,25 +92,19 @@ endfunction
 inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 set dictionary="/usr/dict/words"
 
-" plugins
-filetype plugin on
-
-
 " Nerdtree Settings
 set mouse=a
+" Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
+autocmd BufWinEnter * silent NERDTreeMirror
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-set ttyfast
-set lazyredraw
 "double click t button to toggle NerdTree
 map tt :NERDTreeToggle<CR> 
-"click [] to toggle Tagbar
-map [] :TagbarToggle<CR> 
+nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
+" Python-mode settings
+let g:pymode_rope = 1
+set completeopt=menuone,noinsert
+let g:pymode_rope_regenerate_on_write = 0

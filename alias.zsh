@@ -9,9 +9,10 @@ alias tkill='tmux kill-session -t'
 alias ev='vim ~/.vimrc'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
+alias ea='vim ~/.oh-my-zsh/lib/alias.zsh'
 
 #compiling C++11
 alias g++='g++ -std=c++11'
 
 #opening home of windows
-alias winHome='cd /mnt/c/Users/vijay'
+alias home='cd /mnt/c/Users/vijay'
