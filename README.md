@@ -1,4 +1,4 @@
-# Dot files for vim, zsh, tmux
+# Dot files for vim, oh-my-zsh, tmux
 
 ## Steps for setup
 
