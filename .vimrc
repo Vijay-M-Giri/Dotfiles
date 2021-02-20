@@ -8,6 +8,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ervandew/supertab'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -79,32 +80,30 @@ set title
 
 "Scroll starts when cursor is 8 lines away from top/bottom
 set scrolloff=8
-
-"Use tab for auto-complete
-"=========================
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-set dictionary="/usr/dict/words"
-
-" Nerdtree Settings
 set mouse=a
+
+"""""""""""""""""" Nerdtree Settings """"""""""""""""""""""""""""""""""""
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufWinEnter * silent NERDTreeMirror
-
+" Close nerdtree if it is the last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "double click t button to toggle NerdTree
 map tt :NERDTreeToggle<CR> 
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Python-mode settings
+"""""""""""""""""" Python-mode settings """"""""""""""""""""""""""""""""""
 let g:pymode_rope = 1
 set completeopt=menuone,noinsert
 let g:pymode_rope_regenerate_on_write = 0
+let g:pymode_rope_show_doc_bind = 'K'
+let g:pymode_rope_goto_definition_bind = '<C-b>'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""" Super tab settings """"""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+set omnifunc=syntaxcomplete#Complete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
