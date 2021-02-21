@@ -9,6 +9,7 @@ Plugin 'python-mode/python-mode'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/vim-auto-save'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,6 +65,12 @@ inoremap {<CR> {<CR>}<Esc>O
 inoremap (<CR> (<CR>)<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 "Say no to swap files
 set noswapfile
 set nobackup
@@ -96,14 +103,21 @@ let NERDTreeShowHidden=1
 
 """""""""""""""""" Python-mode settings """"""""""""""""""""""""""""""""""
 let g:pymode_rope = 1
-set completeopt=menuone,noinsert
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_rope_show_doc_bind = 'K'
 let g:pymode_rope_goto_definition_bind = '<C-b>'
+let g:pymode_trim_whitespaces = 0
+let g:pymode_lint_cwindow = 0
+set completeopt=menuone,noinsert
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""" Super tab settings """"""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 set omnifunc=syntaxcomplete#Complete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""" AutoSave settings """""""""""""""""""""""""""""""""""""
+let g:auto_save = 1
+let g:auto_save_no_updatetime = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
