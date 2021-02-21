@@ -1,6 +1,6 @@
 # Dot files for vim, oh-my-zsh, tmux
 
-![Screenshot (35)](https://user-images.githubusercontent.com/16856932/108584616-db6bcc00-7368-11eb-92ba-0871d4fd543e.png)
+![Screenshot (38)](https://user-images.githubusercontent.com/16856932/108633338-c04ca980-7499-11eb-813d-0cd11ae91477.png)
 
 ## Steps for setup
 
