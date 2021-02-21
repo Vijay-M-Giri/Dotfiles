@@ -16,15 +16,17 @@ if [ "$WIDTH" -gt "$X_LARGE" ]; then
 fi
 
 if [ "$WIDTH" -ge "$LARGE" ]; then
-  DATE="#[fg=colour255,bg=colour241,bold] $CALENDAR $(date +'%a %d-%m-%y')"
+  # DATE="#[fg=colour255,bg=colour241,bold] $CALENDAR $(date +'%a %d-%m-%y')"
+  DATE="$CALENDAR $(date +'%a %d-%m-%y')"
 fi
 
 if [ "$WIDTH" -ge "$MEDIUM" ]; then
-  TIME="#[fg=colour255,bg=colour241,bold] $(date +'%H:%M:%S')"
+  # TIME="#[fg=colour255,bg=colour241,bold] $(date +'%H:%M:%S')"
+  TIME="$(date +'%H:%M:%S')"
 fi
 
 if [ "$WIDTH" -ge "$SMALL" ]; then
   CLEAR=""
 fi
-
-echo "$MPD $BATTERY $DATE $TIME " | sed 's/ *$/ /g'
+echo "#[fg=colour238,bg=colour234,nobold,nounderscore,noitalics]#[fg=colour255,bg=colour238] $BATTERY  #[fg=colour255,bg=colour238] $DATE  $TIME #[fg=colour190,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour17,bg=colour190] #H" | sed 's/ *$/ /g'
+# echo "$MPD $BATTERY $DATE $TIME " | sed 's/ *$/ /g'

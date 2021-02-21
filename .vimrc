@@ -10,6 +10,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/vim-auto-save'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -120,4 +122,9 @@ set omnifunc=syntaxcomplete#Complete
 """""""""""""""""" AutoSave settings """""""""""""""""""""""""""""""""""""
 let g:auto_save = 1
 let g:auto_save_no_updatetime = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""" Airline settings """"""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
