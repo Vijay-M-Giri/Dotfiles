@@ -7,10 +7,10 @@
 - Install `oh-my-zsh`
 - Install `tmux`
 - Install `vim`
-- `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 - copy `.vimrc` , `.tmux.conf`, `.zshrc` to `~`
 - copy `alias.sh` to `~/.oh-my-zsh/lib`
 - copy `.vim`, `.tmux` to `~`
+- `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 - create directory `~/.zsh`
 - `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
 - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`
